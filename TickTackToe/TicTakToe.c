@@ -3,6 +3,8 @@
 
 char board[3][3];
 void taking_input(char playersign);
+
+// Function responsible for displaying Game board each time when it is called
 void displayboard()
 {
     printf("\n");
@@ -19,6 +21,8 @@ void displayboard()
         printf("\n\t----------\n");
     }
 }
+
+// This function assign the location choosen by the player and checks if the location is empty or not.
 
 void entervalue(int pos,char sign)
 {
@@ -108,6 +112,8 @@ void entervalue(int pos,char sign)
     }
 }
 
+//This function takes the input from the user and checks if the entered number is correct or not.
+
 void taking_input(char playersign)
 {
     int position;
@@ -126,6 +132,8 @@ void taking_input(char playersign)
     }
     entervalue(position,playersign);
 }
+
+//This function is responsible for Checking the winning condition each time user enter a location.
 
 int checkWinner(char sg)
 {
