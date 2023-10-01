@@ -1,6 +1,6 @@
 In this program a simple TicTackToe game is created.
 
-It is a 2 player game in which each player gets his turn to enter the value on the board.
+It is a 2 player game in which each player gets his turn to enter the value on the board 1 to 9 to play the game.
 
 By default player 1 sign is 'X'
 
