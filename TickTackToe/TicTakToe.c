@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<conio.h>
 
 char board[3][3];
 void taking_input(char playersign);
@@ -24,7 +25,8 @@ void displayboard()
     }
 }
 
-// This function assign the location choosen by the player and checks if the location is empty or not.
+// This function assign the location choosen by the player and checks if the location 
+// is empty or not.
 
 void entervalue(int pos,char sign)
 
@@ -120,7 +122,7 @@ void entervalue(int pos,char sign)
 void taking_input(char playersign)
 {
     int position;
-    B:printf("\nEnter a number(1-9) or press 0 to exit the program : ");
+    B:printf("\n\n\nEnter a number(1-9) or press 0 to exit the program : \n\n\t\t -->");
     scanf("%d",&position);
     if(position == 0)
     {
@@ -130,7 +132,16 @@ void taking_input(char playersign)
     }
     if(position > 9)
     {
-        printf("\nEnter Valid Input\n");
+        system("cls");
+        printf("\n\n\tPlease Enter Valid Input\n\n\tPress ENTER to ontinue_");
+        getch();
+        system("cls");
+        if(playersign == 'X')
+        {
+            printf("\n      Player 1 turn\n");
+        }
+        else printf("\n      Player 2 turn\n");
+        displayboard();
         goto B;
     }
     entervalue(position,playersign);
@@ -179,7 +190,7 @@ int main()
     int score2=0;
     A:
     printf("\n   Welcome to the Game\n");
-    W:printf("\n\nPress 1 to start the game \npress 2 to exit the program\npress 3 to view score\n");
+    W:printf("\n\nPress 1 to start the game \npress 2 to exit the program\npress 3 to view score\n ");
     char Tboard[3][3] = {{'1','2','3'},{'4','5','6'},{'7','8','9'}};
     printf("\n");
     for(int i = 0; i<3; i++) // Loop for displaying Game board
@@ -227,8 +238,8 @@ int main()
         if(i%2==0)
         {
             system("cls");
+            printf("\n      Player 1 turn\n");
             displayboard();
-            printf("\nPlayer 1 turn");
             taking_input('X');
             flag = checkWinner('X');
             if(flag==1)
@@ -237,8 +248,8 @@ int main()
         else
         {
             system("cls");
+            printf("\n      Player 2 turn\n");
             displayboard();
-            printf("\nPlayer 2 turn");
             taking_input('O');
             flag = checkWinner('O');
             if(flag==1)
@@ -255,16 +266,20 @@ int main()
     else
     {
         Q:system("cls");
-        printf("\nPlayer 1 Won\n");
+        printf("\n      Player 1 Won\n");
         score1++;
         displayboard();
-        printf("\n\n");
+        printf("\n\n       Press ENTER");
+        getch();
+        system("cls");
         goto W;
         P:system("cls");
-        printf("\nPlayer 2 Won\n");
+        printf("\n      Player 2 Won\n");
         score2++;
         displayboard();
-        printf("\n\n");
+        printf("\n\n       Press ENTER");
+        getch();
+        system("cls");
         goto W;
     }
 }
